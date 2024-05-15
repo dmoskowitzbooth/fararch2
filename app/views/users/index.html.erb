@@ -107,8 +107,9 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
+
+              <th>
+          Employee ID
         </th>
 
         <th>
@@ -120,10 +121,6 @@
         </th>
 
         <th>
-          Phone
-        </th>
-
-        <th>
           Base
         </th>
 
@@ -131,44 +128,15 @@
           Position
         </th>
 
-        <th>
-          Emp
-        </th>
-
-        <th>
-          Doh
-        </th>
-
-        <th>
-          Access
-        </th>
-
-        <th>
-          Image
-        </th>
-
-        <th>
-          Email
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
       </tr>
 
       <% @list_of_users.each do |an_user| %>
       <tr>
         <td>
-          <%= an_user.id %>
+           <a href="/users/<%= an_user.id %>">
+             <%= an_user.emp_id %>
+          </a>
         </td>
-
         <td>
           <%= an_user.first_name %>
         </td>
@@ -178,48 +146,11 @@
         </td>
 
         <td>
-          <%= an_user.phone %>
-        </td>
-
-        <td>
           <%= an_user.base %>
         </td>
 
         <td>
           <%= an_user.position %>
-        </td>
-
-        <td>
-          <%= an_user.emp_id %>
-        </td>
-
-        <td>
-          <%= an_user.doh %>
-        </td>
-
-        <td>
-          <%= an_user.access %>
-        </td>
-
-        <td>
-          <%= an_user.image %>
-        </td>
-
-        <td>
-          <%= an_user.email %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(an_user.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_user.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/users/<%= an_user.id %>">
-            Show details
-          </a>
         </td>
       </tr>
       <% end %>

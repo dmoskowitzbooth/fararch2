@@ -1,72 +1,72 @@
 class EmployeesController < ApplicationController
   def index
-    matching_employees = Employee.all
+    matching_users = User.all
 
-    @list_of_employees = matching_employees.order({ :created_at => :desc })
+    @list_of_users = matching_users.order({ :created_at => :desc })
 
-    render({ :template => "employees/index" })
+    render({ :template => "users/index" })
   end
 
   def show
     the_id = params.fetch("path_id")
 
-    matching_employees = Employee.where({ :id => the_id })
+    matching_users = User.where({ :id => the_id })
 
-    @the_employee = matching_employees.at(0)
+    @the_user = matching_users.at(0)
 
-    render({ :template => "employees/show" })
+    render({ :template => "users/show" })
   end
 
   def create
-    the_employee = Employee.new
-    the_employee.first_name = params.fetch("query_first_name")
-    the_employee.last_name = params.fetch("query_last_name")
-    the_employee.phone = params.fetch("query_phone")
-    the_employee.base = params.fetch("query_base")
-    the_employee.position = params.fetch("query_position")
-    the_employee.emp_id = params.fetch("query_emp_id")
-    the_employee.doh = params.fetch("query_doh")
-    the_employee.access = params.fetch("query_access")
-    the_employee.image = params.fetch("query_image")
-    the_employee.email = params.fetch("query_email")
+    the_user = user.new
+    the_user.first_name = params.fetch("query_first_name")
+    the_user.last_name = params.fetch("query_last_name")
+    the_user.phone = params.fetch("query_phone")
+    the_user.base = params.fetch("query_base")
+    the_user.position = params.fetch("query_position")
+    the_user.emp_id = params.fetch("query_emp_id")
+    the_user.doh = params.fetch("query_doh")
+    the_user.access = params.fetch("query_access")
+    the_user.image = params.fetch("query_image")
+    the_user.email = params.fetch("query_email")
 
-    if the_employee.valid?
-      the_employee.save
-      redirect_to("/employees", { :notice => "Employee created successfully." })
+    if the_user.valid?
+      the_user.save
+      redirect_to("/users", { :notice => "user created successfully." })
     else
-      redirect_to("/employees", { :alert => the_employee.errors.full_messages.to_sentence })
+      redirect_to("/users", { :alert => the_user.errors.full_messages.to_sentence })
     end
   end
 
   def update
     the_id = params.fetch("path_id")
-    the_employee = Employee.where({ :id => the_id }).at(0)
+    the_user = user.where({ :id => the_id }).at(0)
 
-    the_employee.first_name = params.fetch("query_first_name")
-    the_employee.last_name = params.fetch("query_last_name")
-    the_employee.phone = params.fetch("query_phone")
-    the_employee.base = params.fetch("query_base")
-    the_employee.position = params.fetch("query_position")
-    the_employee.emp_id = params.fetch("query_emp_id")
-    the_employee.doh = params.fetch("query_doh")
-    the_employee.access = params.fetch("query_access")
-    the_employee.image = params.fetch("query_image")
-    the_employee.email = params.fetch("query_email")
+    the_user.first_name = params.fetch("query_first_name")
+    the_user.last_name = params.fetch("query_last_name")
+    the_user.phone = params.fetch("query_phone")
+    the_user.base = params.fetch("query_base")
+    the_user.position = params.fetch("query_position")
+    the_user.emp_id = params.fetch("query_emp_id")
+    the_user.doh = params.fetch("query_doh")
+    the_user.access = params.fetch("query_access")
+    the_user.image = params.fetch("query_image")
+    the_user.email = params.fetch("query_email")
 
-    if the_employee.valid?
-      the_employee.save
-      redirect_to("/employees/#{the_employee.id}", { :notice => "Employee updated successfully."} )
+    if the_user.valid?
+      the_user.save
+      redirect_to("/users/#{the_user.id}", { :notice => "user updated successfully."} )
     else
-      redirect_to("/employees/#{the_employee.id}", { :alert => the_employee.errors.full_messages.to_sentence })
+      redirect_to("/users/#{the_user.id}", { :alert => the_user.errors.full_messages.to_sentence })
     end
   end
 
   def destroy
     the_id = params.fetch("path_id")
-    the_employee = Employee.where({ :id => the_id }).at(0)
+    the_user = User.where({ :id => the_id }).at(0)
 
-    the_employee.destroy
+    the_user.destroy
 
-    redirect_to("/employees", { :notice => "Employee deleted successfully."} )
+    redirect_to("/users", { :notice => "user deleted successfully."} )
   end
 end

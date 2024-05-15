@@ -1,19 +1,19 @@
 <div>
   <div>
     <h1>
-      Employee #<%= @the_employee.id %> details
+      User #<%= @the_user.id %> details
     </h1>
 
     <div>
       <div>
-        <a href="/employees">
+        <a href="/users">
           Go back
         </a>
       </div>
 
       <div>
-        <a href="/delete_employee/<%= @the_employee.id %>">
-          Delete employee
+        <a href="/delete_user/<%= @the_user.id %>">
+          Delete user
         </a>
       </div>
     </div>
@@ -23,84 +23,84 @@
         First name
       </dt>
       <dd>
-        <%= @the_employee.first_name %>
+        <%= @the_user.first_name %>
       </dd>
 
       <dt>
         Last name
       </dt>
       <dd>
-        <%= @the_employee.last_name %>
+        <%= @the_user.last_name %>
       </dd>
 
       <dt>
         Phone
       </dt>
       <dd>
-        <%= @the_employee.phone %>
+        <%= @the_user.phone %>
       </dd>
 
       <dt>
         Base
       </dt>
       <dd>
-        <%= @the_employee.base %>
+        <%= @the_user.base %>
       </dd>
 
       <dt>
         Position
       </dt>
       <dd>
-        <%= @the_employee.position %>
+        <%= @the_user.position %>
       </dd>
 
       <dt>
         Emp
       </dt>
       <dd>
-        <%= @the_employee.emp_id %>
+        <%= @the_user.emp_id %>
       </dd>
 
       <dt>
         Doh
       </dt>
       <dd>
-        <%= @the_employee.doh %>
+        <%= @the_user.doh %>
       </dd>
 
       <dt>
         Access
       </dt>
       <dd>
-        <%= @the_employee.access %>
+        <%= @the_user.access %>
       </dd>
 
       <dt>
         Image
       </dt>
       <dd>
-        <%= @the_employee.image %>
+        <td><img src="<%=@the_user.image %>" style="width:250px;"></td>
       </dd>
 
       <dt>
         Email
       </dt>
       <dd>
-        <%= @the_employee.email %>
+        <%= @the_user.email %>
       </dd>
 
       <dt>
         Created at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_employee.created_at) %> ago
+        <%= time_ago_in_words(@the_user.created_at) %> ago
       </dd>
 
       <dt>
         Updated at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_employee.updated_at) %> ago
+        <%= time_ago_in_words(@the_user.updated_at) %> ago
       </dd>
     </dl>
   </div>
@@ -112,16 +112,16 @@
 <div>
   <div>
     <h2>
-      Edit employee
+      Edit user
     </h2>
 
-    <form action="/modify_employee/<%= @the_employee.id %>"  method="post" >
+    <form action="/modify_user/<%= @the_user.id %>"  method="post" >
       <div>
         <label for="first_name_box">
           First name
         </label>
 
-        <input type="text" id="first_name_box" name="query_first_name" value="<%= @the_employee.first_name %>">
+        <input type="text" id="first_name_box" name="query_first_name" value="<%= @the_user.first_name %>">
       </div>
 
       <div>
@@ -129,7 +129,7 @@
           Last name
         </label>
 
-        <input type="text" id="last_name_box" name="query_last_name" value="<%= @the_employee.last_name %>">
+        <input type="text" id="last_name_box" name="query_last_name" value="<%= @the_user.last_name %>">
       </div>
 
       <div>
@@ -137,7 +137,7 @@
           Phone
         </label>
 
-        <input type="text" id="phone_box" name="query_phone" value="<%= @the_employee.phone %>">
+        <input type="text" id="phone_box" name="query_phone" value="<%= @the_user.phone %>">
       </div>
 
       <div>
@@ -145,7 +145,7 @@
           Base
         </label>
 
-        <input type="text" id="base_box" name="query_base" value="<%= @the_employee.base %>">
+        <input type="text" id="base_box" name="query_base" value="<%= @the_user.base %>">
       </div>
 
       <div>
@@ -153,7 +153,7 @@
           Position
         </label>
 
-        <input type="text" id="position_box" name="query_position" value="<%= @the_employee.position %>">
+        <input type="text" id="position_box" name="query_position" value="<%= @the_user.position %>">
       </div>
 
       <div>
@@ -161,7 +161,7 @@
           Emp
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_employee.emp_id %>">
+        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_user.emp_id %>">
       </div>
 
       <div>
@@ -169,7 +169,7 @@
           Doh
         </label>
 
-        <input type="text" id="doh_box" name="query_doh" value="<%= @the_employee.doh %>">
+        <input type="text" id="doh_box" name="query_doh" value="<%= @the_user.doh %>">
       </div>
 
       <div>
@@ -177,7 +177,7 @@
           Access
         </label>
 
-        <input type="text" id="access_box" name="query_access" value="<%= @the_employee.access %>">
+        <input type="text" id="access_box" name="query_access" value="<%= @the_user.access %>">
       </div>
 
       <div>
@@ -185,7 +185,7 @@
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_employee.image %>">
+        <input type="text" id="image_box" name="query_image" value="<%= @the_user.image %>">
       </div>
 
       <div>
@@ -193,11 +193,11 @@
           Email
         </label>
 
-        <input type="text" id="email_box" name="query_email" value="<%= @the_employee.email %>">
+        <input type="text" id="email_box" name="query_email" value="<%= @the_user.email %>">
       </div>
 
       <button>
-        Update employee
+        Update user
       </button>
     </form>
   </div>

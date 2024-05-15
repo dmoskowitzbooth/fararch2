@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
     the_id = params.fetch("path_id")
 
-    matching_users = User.where({ :id => the_id })
+    matching_user = User.where({ :id => the_id })
 
     @the_user = matching_user.at(0)
 
